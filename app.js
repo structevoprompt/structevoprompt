@@ -2,6 +2,8 @@
 let discipline="interior";
 const $=id=>document.getElementById(id);
 let referenceFiles=[];
+let hasGenerated=false;
+function maybeRegenerate(){ if(hasGenerated) generatePrompt(); }
 const ids=["projectName","engine","promptDepth","outputType","room","style","palette","materials","furniture","archOutput","buildingType","archStyle","facade","context","climate","massing","landscape","camera","lighting","ratio","quality","details","preserve","negative"];
 
 function setDiscipline(mode){
@@ -14,13 +16,15 @@ function setDiscipline(mode){
   $("architecturePresets").style.display=mode==="architecture"?"grid":"none";
   $("disciplineLabel").textContent=mode==="interior"?"INTERIOR":"ARCHITECTURE";
   $("modeStat").textContent=mode==="interior"?"Interior":"Architecture";
-  generatePrompt();
+  maybeRegenerate();
 }
 
 function tags(){return [...document.querySelectorAll(".tag.active")].map(x=>x.textContent.trim()).join(", ")}
 function v(id){return $(id)?.value?.trim()||""}
 
 function generatePrompt(){
+  hasGenerated=true;
+  const generateBtn=$("generatePromptBtn"); if(generateBtn) generateBtn.textContent="Regenerate";
   let p="";
   if(v("projectName")) p+=`Project: ${v("projectName")}\n\n`;
   p+=`Prompt depth: ${v("promptDepth")||"Professional"}\nAI engine: ${v("engine")}\n\n`;
@@ -97,14 +101,14 @@ function renderReferences(){
     const thumb=document.createElement("div"); thumb.className="upload-thumb";
     if(file.type.startsWith("image/")){ const img=document.createElement("img"); img.src=URL.createObjectURL(file); img.alt=""; thumb.appendChild(img); } else thumb.textContent="PDF";
     const meta=document.createElement("div"); meta.className="upload-meta"; meta.innerHTML=`<b>${file.name.replace(/[<>]/g,"")}</b><small>${humanSize(file.size)}</small>`;
-    const rm=document.createElement("button"); rm.type="button"; rm.className="remove-upload"; rm.setAttribute("aria-label","Remove reference"); rm.textContent="×"; rm.onclick=(e)=>{e.stopPropagation();referenceFiles.splice(i,1);renderReferences();generatePrompt();};
+    const rm=document.createElement("button"); rm.type="button"; rm.className="remove-upload"; rm.setAttribute("aria-label","Remove reference"); rm.textContent="×"; rm.onclick=(e)=>{e.stopPropagation();referenceFiles.splice(i,1);renderReferences();maybeRegenerate();};
     main.append(thumb,meta); row.append(main,rm); list.appendChild(row);
   });
   if($("referenceStat")) $("referenceStat").textContent=referenceFiles.length;
 }
 function addReferenceFiles(files){
   const allowed=[...files].filter(f=>f.type.startsWith("image/")||f.type==="application/pdf").slice(0,5-referenceFiles.length);
-  referenceFiles=[...referenceFiles,...allowed].slice(0,5); renderReferences(); generatePrompt();
+  referenceFiles=[...referenceFiles,...allowed].slice(0,5); renderReferences(); maybeRegenerate();
 }
 function setupReferenceUpload(){
   const input=$("referenceFiles"), zone=$("uploadZone"), browse=$("browseFiles"); if(!input||!zone) return;
@@ -113,18 +117,20 @@ function setupReferenceUpload(){
   ["dragenter","dragover"].forEach(ev=>zone.addEventListener(ev,e=>{e.preventDefault();zone.classList.add("dragover")}));
   ["dragleave","drop"].forEach(ev=>zone.addEventListener(ev,e=>{e.preventDefault();zone.classList.remove("dragover")}));
   zone.addEventListener("drop",e=>addReferenceFiles(e.dataTransfer.files));
-  $("preserveReference")?.addEventListener("change",generatePrompt);
+  $("preserveReference")?.addEventListener("change",maybeRegenerate);
 }
 function setupEnginePills(){
   const sync=()=>document.querySelectorAll(".engine-pills button").forEach(b=>b.classList.toggle("active",b.dataset.engine===v("engine")));
-  document.querySelectorAll(".engine-pills button").forEach(b=>b.addEventListener("click",()=>{$("engine").value=b.dataset.engine;sync();generatePrompt()}));
+  document.querySelectorAll(".engine-pills button").forEach(b=>b.addEventListener("click",()=>{$("engine").value=b.dataset.engine;sync();maybeRegenerate()}));
   $("engine")?.addEventListener("change",sync); sync();
 }
 
 async function copyPrompt(btn){
+  if(!hasGenerated){alert("Generate a prompt first");return;}
   try{await navigator.clipboard.writeText($("promptOutput").textContent);let o=btn.textContent;btn.textContent="Copied ✓";setTimeout(()=>btn.textContent=o,1000)}catch(e){alert("Copy manually")}
 }
 function savePrompt(){
+  if(!hasGenerated){alert("Generate a prompt first");return;}
   let items=[];try{items=JSON.parse(localStorage.getItem("structevo_projects")||"[]")}catch(e){}
   items.unshift({name:v("projectName")||"Untitled Project",discipline,prompt:$("promptOutput").textContent,date:new Date().toLocaleDateString()});
   localStorage.setItem("structevo_projects",JSON.stringify(items.slice(0,30)));alert("Saved to Dashboard");
@@ -137,7 +143,7 @@ function applyPreset(t){
   if(t==="commercial"){ $("room").value="Travel Agency";$("details").value="Include clear entrance sequence, reception, waiting, workstations, private offices and professional circulation.";}
   if(t==="uni"){ $("outputType").value="University Presentation Board";$("ratio").value="A3 presentation board";}
   if(t==="cad"){ $("outputType").value="Unfurnished CAD Plan";$("camera").value="Strict orthographic top view";}
-  generatePrompt();
+  maybeRegenerate();
 }
 function applyArchPreset(t){
   setDiscipline("architecture");
@@ -147,13 +153,14 @@ function applyArchPreset(t){
   if(t==="masterplan"){ $("archOutput").value="Masterplan Visualization";$("buildingType").value="Urban Development";$("camera").value="Bird's-eye architectural view";}
   if(t==="tower"){ $("archOutput").value="Photorealistic Architectural Exterior";$("buildingType").value="Mixed-use Tower";$("context").value="Dense metropolitan context";}
   if(t==="site"){ $("archOutput").value="Site Plan Visualization";$("camera").value="Strict orthographic top view";}
-  generatePrompt();
+  maybeRegenerate();
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
-  ids.forEach(id=>$(id)?.addEventListener("input",generatePrompt));
-  document.querySelectorAll(".tag").forEach(t=>t.addEventListener("click",()=>{t.classList.toggle("active");generatePrompt()}));
+  ids.forEach(id=>$(id)?.addEventListener("input",maybeRegenerate));
+  document.querySelectorAll(".tag").forEach(t=>t.addEventListener("click",()=>{t.classList.toggle("active");maybeRegenerate()}));
   setupReferenceUpload();
   setupEnginePills();
   setDiscipline("interior");
+  if($("promptOutput")) $("promptOutput").innerHTML='<span class="output-placeholder">Your generated prompt will appear here after you click Generate Prompt.</span>';
 });

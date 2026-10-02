@@ -1,7 +1,7 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3E5F7F"><title>Prompt Studio — Structevo AI</title><link rel="stylesheet" href="styles.css"></head><body>
 
 <header class="navbar"><div class="container nav-inner">
-<a class="brand" href="index.html"><span class="brandmark">SA</span>STRUCTEVO AI</a>
+<a class="brand" href="index.html"><img class="brandmark-img" src="structevo-logo.png" alt="Structevo logo">STRUCTEVO AI</a>
 <nav class="navlinks">
 <a class="" href="index.html">Home</a>
 <a class="active" href="studio.html">Studio</a>
@@ -10,7 +10,7 @@
 <a class="" href="dashboard.html">Dashboard</a>
 <a class="social-nav" href="https://instagram.com/structevo" target="_blank" rel="noopener">Instagram ↗</a>
 </nav>
-<div class="nav-actions"><a class="btn ig-btn" href="https://instagram.com/structevo" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a class="btn secondary" href="dashboard.html">My Projects</a><a class="btn dark" href="studio.html">Start Free</a></div>
+<div class="nav-actions"><a class="btn ig-btn" href="https://instagram.com/structevo" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg></a><a class="btn secondary" href="dashboard.html">My Projects</a><a class="btn dark" href="studio.html">Start Free</a></div>
 </div></header>
 <main class="container"><section class="pagehead"><span class="badge">PRO PROMPT STUDIO</span><h1>One studio. Two disciplines.</h1><p>Switch between Interior Design and Architecture. The interface changes the controls and prompt logic automatically.</p></section>
 <div class="studio-layout">
@@ -73,5 +73,5 @@
 </div>
 </section>
 
-<aside class="result"><div class="blockhead"><h3>Generated Prompt</h3><span id="disciplineLabel">INTERIOR</span></div><div id="promptOutput" class="output"></div><div class="out-actions"><button class="btn dark" onclick="copyPrompt(this)">Copy Prompt</button><button class="btn" onclick="savePrompt()">Save</button><button class="btn" onclick="generatePrompt()">Regenerate</button></div><div class="metrics four"><div class="metric"><b id="wordCount">0</b><span>WORDS</span></div><div class="metric"><b id="engineStat">—</b><span>ENGINE</span></div><div class="metric"><b id="modeStat">Interior</b><span>MODE</span></div><div class="metric"><b id="referenceStat">0</b><span>REFERENCES</span></div></div></aside>
+<aside class="result"><div class="blockhead"><h3>Generated Prompt</h3><span id="disciplineLabel">INTERIOR</span></div><div id="promptOutput" class="output"><span class="output-placeholder">Your generated prompt will appear here after you click Generate Prompt.</span></div><div class="out-actions"><button class="btn dark" onclick="copyPrompt(this)">Copy Prompt</button><button class="btn" onclick="savePrompt()">Save</button><button id="generatePromptBtn" class="btn" onclick="generatePrompt()">Generate Prompt</button></div><div class="metrics four"><div class="metric"><b id="wordCount">0</b><span>WORDS</span></div><div class="metric"><b id="engineStat">—</b><span>ENGINE</span></div><div class="metric"><b id="modeStat">Interior</b><span>MODE</span></div><div class="metric"><b id="referenceStat">0</b><span>REFERENCES</span></div></div></aside>
 </div></main><footer class="footer"><div class="container footer-inner"><div>© 2026 STRUCTEVO AI</div><div class="footer-links"><span>AI prompting for Interior Design + Architecture</span><a href="https://instagram.com/structevo" target="_blank" rel="noopener">Instagram @structevo ↗</a></div></div></footer><script src="app.js"></script></body></html>
