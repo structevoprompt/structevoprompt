@@ -1,27 +1,19 @@
-# Interior Prompt Studio — Version 1
+# Structevo Prompt V2 Pro
 
-A front-end prototype for an AI prompt platform focused on interior design and architecture.
+Professional prompt platform prototype for:
+- Interior Design
+- Architecture
+- Architectural visualization
+- Façade studies
+- Massing
+- Site planning
+- Masterplans
+- University presentation workflows
 
-## Pages
-- index.html — Homepage
-- studio.html — Professional prompt generator
-- explore.html — Prompt library
-- pricing.html — Free / Pro / Studio pricing concept
-- dashboard.html — Saved prompts dashboard
-- styles.css — Shared design system
-- app.js — Prompt generation, local saving and filters
-
-## Run
-Open `index.html` in a browser.
-
-For deployment, upload the folder to GitHub and deploy it on Vercel, Netlify, Cloudflare Pages, or any static host.
-
-## Current limitations
-This is Version 1 front-end only. It does not yet include:
-- real user accounts
-- database sync
-- OpenAI API calls
-- image / CAD uploads
-- Stripe payments
-
-Those belong in Version 2/3.
+This version is still front-end only. Production roadmap:
+1. Authentication
+2. Cloud database
+3. AI prompt enhancement
+4. Image / plan upload analysis
+5. Subscription billing
+6. Team workspaces
