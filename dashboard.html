@@ -7,13 +7,14 @@
 <a class="" href="explore.html">Library</a>
 <a class="" href="pricing.html">Pricing</a>
 <a class="active" href="dashboard.html">Dashboard</a>
+<a class="social-nav" href="https://instagram.com/structevo" target="_blank" rel="noopener">Instagram ↗</a>
 </nav>
-<div class="nav-actions"><a class="btn secondary" href="dashboard.html">My Projects</a><a class="btn dark" href="studio.html">Start Free</a></div>
+<div class="nav-actions"><a class="btn ig-btn" href="https://instagram.com/structevo" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a class="btn secondary" href="dashboard.html">My Projects</a><a class="btn dark" href="studio.html">Start Free</a></div>
 </div></header>
 <main class="container"><section class="pagehead"><span class="badge">MY WORKSPACE</span><h1>Projects, prompts and design directions.</h1><p>Your saved Interior and Architecture prompts appear here in this prototype.</p></section>
 <div class="stats"><div class="card stat"><b id="projectCount">0</b><span>PROJECTS</span></div><div class="card stat"><b id="interiorCount">0</b><span>INTERIOR</span></div><div class="card stat"><b id="archCount">0</b><span>ARCHITECTURE</span></div><div class="card stat"><b id="promptCount">0</b><span>PROMPTS</span></div></div>
 <section class="dashboard-grid" style="padding-bottom:54px"><div class="card dash"><span class="badge">RECENT</span><h3 style="font-size:25px">Saved Projects</h3><div id="projects"></div></div><div class="card dash"><span class="badge">QUICK START</span><h3 style="font-size:25px">Continue designing</h3><p style="font-size:10px;color:var(--muted);line-height:1.55">Open the studio and switch between Interior Design and Architecture at any time.</p><div style="display:grid;gap:8px;margin-top:18px"><a class="btn dark block" href="studio.html">Open Studio</a><a class="btn block" href="explore.html">Prompt Library</a></div></div></section>
-</main><footer class="footer"><div class="container footer-inner"><div>© 2026 STRUCTEVO AI</div><div>AI prompting for Interior Design + Architecture</div></div></footer>
+</main><footer class="footer"><div class="container footer-inner"><div>© 2026 STRUCTEVO AI</div><div class="footer-links"><span>AI prompting for Interior Design + Architecture</span><a href="https://instagram.com/structevo" target="_blank" rel="noopener">Instagram @structevo ↗</a></div></div></footer>
 <script>
 let x=[];try{x=JSON.parse(localStorage.getItem("structevo_projects")||"[]")}catch(e){}
 document.getElementById("projectCount").textContent=new Set(x.map(p=>p.name)).size;

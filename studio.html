@@ -8,8 +8,9 @@
 <a class="" href="explore.html">Library</a>
 <a class="" href="pricing.html">Pricing</a>
 <a class="" href="dashboard.html">Dashboard</a>
+<a class="social-nav" href="https://instagram.com/structevo" target="_blank" rel="noopener">Instagram ↗</a>
 </nav>
-<div class="nav-actions"><a class="btn secondary" href="dashboard.html">My Projects</a><a class="btn dark" href="studio.html">Start Free</a></div>
+<div class="nav-actions"><a class="btn ig-btn" href="https://instagram.com/structevo" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a class="btn secondary" href="dashboard.html">My Projects</a><a class="btn dark" href="studio.html">Start Free</a></div>
 </div></header>
 <main class="container"><section class="pagehead"><span class="badge">PRO PROMPT STUDIO</span><h1>One studio. Two disciplines.</h1><p>Switch between Interior Design and Architecture. The interface changes the controls and prompt logic automatically.</p></section>
 <div class="studio-layout">
@@ -25,7 +26,8 @@
 
 <div class="block"><div class="blockhead"><h3>Project Setup</h3><span>02</span></div><div class="formgrid">
 <div class="field"><label>PROJECT NAME (OPTIONAL)</label><input id="projectName" placeholder="Enter your project name"></div>
-<div class="field"><label>AI ENGINE</label><select id="engine"><option>ChatGPT Image</option><option>Midjourney</option><option>Flux</option><option>Stable Diffusion</option><option>Adobe Firefly</option><option>Leonardo AI</option><option>Gemini Image</option></select></div>
+<div class="field"><label>AI ENGINE</label><select id="engine"><option>ChatGPT Image</option><option>Midjourney</option><option>Flux</option><option>Stable Diffusion</option><option>Adobe Firefly</option><option>Leonardo AI</option><option>Gemini Image</option></select><div class="engine-pills"><button type="button" data-engine="ChatGPT Image">ChatGPT</button><button type="button" data-engine="Midjourney">Midjourney</button><button type="button" data-engine="Flux">Flux</button><button type="button" data-engine="Adobe Firefly">Firefly</button></div></div>
+<div class="field"><label>PROMPT DEPTH</label><select id="promptDepth"><option>Professional</option><option>Concise</option><option>Technical</option></select><small class="field-help">Professional is recommended for most design work.</small></div>
 
 <div class="field interior-only"><label>OUTPUT TYPE</label><select id="outputType"><option>Photorealistic 3D Interior</option><option>Furnished Floor Plan</option><option>Unfurnished CAD Plan</option><option>Interior Moodboard</option><option>Material Board</option><option>Interior Elevation</option><option>Axonometric Interior</option><option>University Presentation Board</option></select></div>
 <div class="field interior-only"><label>SPACE / ROOM</label><select id="room"><option>Living Room</option><option>Open Living + Dining + Kitchen</option><option>Bedroom</option><option>Master Suite</option><option>Kitchen</option><option>Bathroom</option><option>Reception / Lobby</option><option>Office</option><option>Travel Agency</option><option>Café</option><option>Restaurant</option><option>Retail Store</option><option>Salon</option><option>Hotel Lobby</option></select></div>
@@ -34,7 +36,14 @@
 <div class="field arch-only"><label>BUILDING TYPE</label><select id="buildingType"><option>Luxury Villa</option><option>Residential Building</option><option>Mixed-use Tower</option><option>Office Building</option><option>Hotel / Resort</option><option>Retail / Commercial Center</option><option>Cultural Center</option><option>Museum</option><option>Educational Building</option><option>Healthcare Facility</option><option>Sports Facility</option><option>Urban Development</option></select></div>
 </div></div>
 
-<div class="block"><div class="blockhead"><h3>Design Direction</h3><span>03</span></div>
+<div class="block" id="referenceUpload"><div class="blockhead"><h3>Reference Upload</h3><span>03</span></div>
+<div class="upload-zone" id="uploadZone" tabindex="0" role="button" aria-label="Upload plan or reference image">
+<input id="referenceFiles" type="file" multiple accept="image/png,image/jpeg,image/webp,application/pdf,.pdf" hidden>
+<div class="upload-plus">＋</div><div><b>Upload plan, sketch or reference</b><p>PNG, JPG, WEBP or PDF · up to 5 references</p></div><button class="btn" type="button" id="browseFiles">Browse files</button>
+</div><div id="uploadList" class="upload-list"></div>
+<label class="reference-toggle"><input id="preserveReference" type="checkbox" checked> <span>Preserve uploaded geometry / composition where applicable</span></label>
+</div>
+<div class="block"><div class="blockhead"><h3>Design Direction</h3><span>04</span></div>
 <div class="formgrid interior-only">
 <div class="field"><label>STYLE</label><select id="style"><option>Contemporary Luxury</option><option>Modern Minimal</option><option>Warm Minimalism</option><option>Japandi</option><option>Modern Classic</option><option>Organic Modern</option><option>Industrial</option><option>Art Deco</option><option>Mediterranean</option></select></div>
 <div class="field"><label>PALETTE</label><select id="palette"><option>Ivory, warm beige, walnut and muted olive</option><option>White, greige and natural oak</option><option>Black, ivory and brushed brass</option><option>Stone gray, sage and light oak</option></select></div>
@@ -51,18 +60,18 @@
 <div class="field"><label>LANDSCAPE APPROACH</label><select id="landscape"><option>Integrated minimalist landscape</option><option>Lush biophilic landscape</option><option>Mediterranean drought-tolerant planting</option><option>Urban hardscape with tree canopy</option><option>Resort-style landscape</option></select></div>
 </div></div>
 
-<div class="block"><div class="blockhead"><h3>Visual Direction</h3><span>04</span></div><div class="formgrid">
+<div class="block"><div class="blockhead"><h3>Visual Direction</h3><span>05</span></div><div class="formgrid">
 <div class="field"><label>CAMERA / VIEW</label><select id="camera"><option>Eye-level 28 mm architectural lens</option><option>Two-point architectural perspective</option><option>Wide-angle 24 mm perspective</option><option>Bird's-eye architectural view</option><option>Strict orthographic top view</option><option>Axonometric / isometric view</option></select></div>
 <div class="field"><label>LIGHTING</label><select id="lighting"><option>Soft daylight with realistic global illumination</option><option>Golden-hour architectural lighting</option><option>Blue-hour exterior lighting</option><option>Bright overcast daylight</option><option>Night architectural lighting</option></select></div>
 <div class="field"><label>OUTPUT FORMAT</label><select id="ratio"><option>16:9 landscape</option><option>4:3 landscape</option><option>3:4 portrait</option><option>1:1 square</option><option>A3 presentation board</option><option>A2 presentation board</option></select></div>
 <div class="field"><label>QUALITY</label><select id="quality"><option>Ultra-realistic architectural visualization</option><option>High-end competition visualization</option><option>Editorial architectural photography</option><option>Clean professional visualization</option></select></div>
 </div></div>
 
-<div class="block"><div class="blockhead"><h3>Technical Control</h3><span>05</span></div>
+<div class="block"><div class="blockhead"><h3>Technical Control</h3><span>06</span></div>
 <div class="tags"><div class="tag active">Accurate Scale</div><div class="tag active">Controlled Geometry</div><div class="tag active">Real Materials</div><div class="tag active">Straight Verticals</div><div class="tag active">Presentation Ready</div><div class="tag">No People</div><div class="tag">No Text</div><div class="tag">Preserve Site Geometry</div><div class="tag">No Warped Façade</div></div>
 <div class="formgrid" style="margin-top:11px"><div class="field full"><label>PROJECT REQUIREMENTS</label><textarea id="details" placeholder="Describe zoning, façade rhythm, site access, circulation, required spaces, design intent..."></textarea></div><div class="field full"><label>MUST PRESERVE</label><textarea id="preserve" placeholder="Preserve original footprint, massing, floor count, site boundary, openings or supplied drawing geometry..."></textarea></div><div class="field full"><label>AVOID</label><textarea id="negative" placeholder="No warped structure, unrealistic cantilevers, random windows, distorted perspective, floating landscape elements..."></textarea></div></div>
 </div>
 </section>
 
-<aside class="result"><div class="blockhead"><h3>Generated Prompt</h3><span id="disciplineLabel">INTERIOR</span></div><div id="promptOutput" class="output"></div><div class="out-actions"><button class="btn dark" onclick="copyPrompt(this)">Copy Prompt</button><button class="btn" onclick="savePrompt()">Save</button><button class="btn" onclick="generatePrompt()">Regenerate</button></div><div class="metrics"><div class="metric"><b id="wordCount">0</b><span>WORDS</span></div><div class="metric"><b id="engineStat">—</b><span>ENGINE</span></div><div class="metric"><b id="modeStat">Interior</b><span>MODE</span></div></div></aside>
-</div></main><footer class="footer"><div class="container footer-inner"><div>© 2026 STRUCTEVO AI</div><div>AI prompting for Interior Design + Architecture</div></div></footer><script src="app.js"></script></body></html>
+<aside class="result"><div class="blockhead"><h3>Generated Prompt</h3><span id="disciplineLabel">INTERIOR</span></div><div id="promptOutput" class="output"></div><div class="out-actions"><button class="btn dark" onclick="copyPrompt(this)">Copy Prompt</button><button class="btn" onclick="savePrompt()">Save</button><button class="btn" onclick="generatePrompt()">Regenerate</button></div><div class="metrics four"><div class="metric"><b id="wordCount">0</b><span>WORDS</span></div><div class="metric"><b id="engineStat">—</b><span>ENGINE</span></div><div class="metric"><b id="modeStat">Interior</b><span>MODE</span></div><div class="metric"><b id="referenceStat">0</b><span>REFERENCES</span></div></div></aside>
+</div></main><footer class="footer"><div class="container footer-inner"><div>© 2026 STRUCTEVO AI</div><div class="footer-links"><span>AI prompting for Interior Design + Architecture</span><a href="https://instagram.com/structevo" target="_blank" rel="noopener">Instagram @structevo ↗</a></div></div></footer><script src="app.js"></script></body></html>
