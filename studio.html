@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Prompt Studio — Interior Prompt Studio</title><link rel="stylesheet" href="styles.css"></head><body>
+
+<header class="navbar"><div class="container nav-inner">
+<a href="index.html" class="brand"><span class="brandmark">IPS</span>INTERIOR PROMPT STUDIO</a>
+<nav class="navlinks">
+<a class="" href="index.html">Home</a>
+<a class="active" href="studio.html">Prompt Studio</a>
+<a class="" href="explore.html">Explore</a>
+<a class="" href="pricing.html">Pricing</a>
+<a class="" href="dashboard.html">Dashboard</a>
+</nav>
+<div class="nav-actions"><a class="btn soft" href="dashboard.html">My Projects</a><a class="btn dark" href="studio.html">Create Prompt</a></div>
+</div></header>
+<main class="container">
+<section class="pagehead"><span class="badge">PROMPT STUDIO</span><h1>Build the exact prompt you need.</h1><p>Start with a preset or build from scratch. The generator turns your selections into professional architectural prompting language.</p></section>
+<div class="studio-layout">
+<aside class="sidebar">
+<div class="side-label">WORKSPACE</div>
+<div class="side-link active" onclick="document.getElementById('presets').scrollIntoView()">Quick Start</div>
+<div class="side-link" onclick="document.getElementById('project').scrollIntoView()">Project</div>
+<div class="side-link" onclick="document.getElementById('design').scrollIntoView()">Design</div>
+<div class="side-link" onclick="document.getElementById('visual').scrollIntoView()">Visual</div>
+<div class="side-link" onclick="document.getElementById('technical').scrollIntoView()">Technical</div>
+</aside>
+
+<section class="builder">
+<div class="block" id="presets"><div class="blockhead"><h3>Quick Start</h3><span>01</span></div><div class="presets">
+<div class="preset" onclick="applyPreset('luxury')"><b>Luxury 3D</b><small>Premium photorealistic interior</small></div>
+<div class="preset" onclick="applyPreset('plan')"><b>Furnished Plan</b><small>Top view with practical zoning</small></div>
+<div class="preset" onclick="applyPreset('cad')"><b>Clean CAD</b><small>Architectural linework</small></div>
+<div class="preset" onclick="applyPreset('mood')"><b>Moodboard</b><small>Palette, materials and furniture</small></div>
+<div class="preset" onclick="applyPreset('uni')"><b>University Board</b><small>Presentation-ready academic output</small></div>
+<div class="preset" onclick="applyPreset('commercial')"><b>Commercial</b><small>Office, café, retail and agency</small></div>
+</div></div>
+
+<div class="block" id="project"><div class="blockhead"><h3>Project Setup</h3><span>02</span></div><div class="formgrid">
+<div class="field"><label>PROJECT NAME</label><input id="projectName" placeholder="Travel Agency Ground Floor"></div>
+<div class="field"><label>AI ENGINE</label><select id="engine"><option>ChatGPT Image</option><option>Midjourney</option><option>Stable Diffusion</option><option>Leonardo AI</option><option>Adobe Firefly</option><option>Gemini Image</option><option>Flux</option></select></div>
+<div class="field"><label>OUTPUT TYPE</label><select id="outputType"><option>Photorealistic 3D Interior</option><option>Furnished Floor Plan</option><option>Unfurnished CAD Plan</option><option>Interior Moodboard</option><option>Material Board</option><option>Concept Board</option><option>Interior Elevation</option><option>Section Perspective</option><option>Axonometric View</option><option>Exploded Axonometric</option><option>University Presentation Board</option><option>Before / After Concept</option></select></div>
+<div class="field"><label>PROJECT TYPE</label><select id="projectType"><option>Residential</option><option>Commercial</option><option>Hospitality</option><option>Retail</option><option>Office / Workplace</option><option>Food & Beverage</option><option>Healthcare</option><option>Educational</option><option>Exhibition</option></select></div>
+<div class="field full"><label>SPACE / ROOM</label><select id="room"><option>Living Room</option><option>Open Living + Dining + Kitchen</option><option>Bedroom</option><option>Master Suite</option><option>Walk-in Closet</option><option>Kitchen</option><option>Bathroom</option><option>Reception / Lobby</option><option>Office</option><option>Meeting Room</option><option>Travel Agency</option><option>Café</option><option>Restaurant</option><option>Retail Store</option><option>Salon</option><option>Hotel Lobby</option><option>Hotel Room</option><option>Workspace</option><option>Exhibition Space</option><option>Clinic Reception</option><option>University Studio</option></select></div>
+</div></div>
+
+<div class="block" id="design"><div class="blockhead"><h3>Design Direction</h3><span>03</span></div><div class="formgrid">
+<div class="field"><label>STYLE</label><select id="style"><option>Contemporary Luxury</option><option>Modern Minimal</option><option>Warm Minimalism</option><option>Japandi</option><option>Modern Classic</option><option>Organic Modern</option><option>Industrial</option><option>Art Deco</option><option>Mediterranean</option><option>Scandinavian</option><option>Brutalist</option><option>Mid-Century Modern</option><option>Neo-futurist</option><option>Wabi-Sabi</option><option>Coastal</option></select></div>
+<div class="field"><label>MOOD</label><select id="mood"><option>Refined, calm, premium and welcoming</option><option>Bright, airy and sophisticated</option><option>Warm, intimate and elegant</option><option>Professional, clean and high-end</option><option>Bold, dramatic and editorial</option><option>Soft, natural and relaxed</option></select></div>
+<div class="field"><label>COLOR PALETTE</label><select id="palette"><option>Ivory, warm beige, walnut and muted olive</option><option>White, greige and natural oak</option><option>Black, ivory and brushed brass</option><option>Stone gray, sage and light oak</option><option>Sand, terracotta and cream</option><option>Charcoal, warm gray and walnut</option><option>Muted blue, beige and oak</option></select></div>
+<div class="field"><label>MATERIALS</label><select id="materials"><option>Ivory marble, walnut veneer, brushed brass, textured fabric</option><option>Travertine, natural oak, linen, microcement</option><option>Concrete, black metal, smoked glass, dark wood</option><option>Terrazzo, painted plaster, oak, ceramic tile</option><option>Calacatta marble, lacquered wood, bronze, velvet</option><option>Oak, limewash, natural stone, boucle</option></select></div>
+<div class="field"><label>FURNITURE LANGUAGE</label><select id="furniture"><option>Soft sculptural contemporary furniture</option><option>Clean rectilinear modern furniture</option><option>Custom built-in furniture and millwork</option><option>Elegant classic-modern furniture</option><option>Minimal low-profile furniture</option><option>Statement furniture with refined curves</option></select></div>
+<div class="field"><label>DECOR LEVEL</label><select id="decor"><option>Balanced and curated</option><option>Minimal</option><option>Rich but controlled</option><option>Editorial styling</option><option>Functional only</option></select></div>
+</div></div>
+
+<div class="block" id="visual"><div class="blockhead"><h3>Visual & Camera</h3><span>04</span></div><div class="formgrid">
+<div class="field"><label>CAMERA / VIEW</label><select id="camera"><option>Eye-level, 28 mm architectural lens</option><option>Wide-angle corner perspective, 24 mm lens</option><option>Eye-level frontal composition, 35 mm lens</option><option>Strict 90-degree orthographic top view</option><option>Bird's-eye architectural view</option><option>Isometric / axonometric view</option><option>One-point perspective</option><option>Two-point architectural perspective</option></select></div>
+<div class="field"><label>LIGHTING</label><select id="lighting"><option>Warm 3000K indirect lighting with soft daylight</option><option>Bright natural daylight with soft ambient fill</option><option>Golden-hour sunlight with warm interior accents</option><option>Layered architectural lighting with concealed LEDs</option><option>Soft evening lighting with decorative pendants</option><option>Neutral gallery lighting</option></select></div>
+<div class="field"><label>TIME OF DAY</label><select id="time"><option>Daytime</option><option>Morning</option><option>Golden Hour</option><option>Evening</option><option>Night</option><option>Overcast Soft Light</option></select></div>
+<div class="field"><label>FORMAT</label><select id="ratio"><option>16:9 landscape</option><option>4:3 landscape</option><option>1:1 square</option><option>3:4 portrait</option><option>9:16 vertical</option><option>A3 presentation board</option><option>A2 presentation board</option></select></div>
+<div class="field"><label>QUALITY</label><select id="quality"><option>Ultra-realistic architectural visualization</option><option>High-end editorial render</option><option>Clean professional visualization</option><option>Conceptual but realistic</option><option>Technical architectural presentation</option></select></div>
+<div class="field"><label>BACKGROUND</label><select id="background"><option>Natural architectural context</option><option>Clean white background</option><option>Neutral studio background</option><option>Urban context visible through windows</option><option>Landscape / greenery visible outside</option></select></div>
+</div></div>
+
+<div class="block" id="technical"><div class="blockhead"><h3>Technical Control</h3><span>05</span></div>
+<div class="tags"><div class="tag active">Photorealistic</div><div class="tag active">Accurate Scale</div><div class="tag active">Straight Verticals</div><div class="tag active">Real Materials</div><div class="tag active">Clear Circulation</div><div class="tag active">Clean Shadows</div><div class="tag">No People</div><div class="tag">No Text</div><div class="tag">White Background</div><div class="tag">Presentation Ready</div><div class="tag">Crisp Wall Edges</div><div class="tag">Correct Furniture Scale</div></div>
+<div class="formgrid" style="margin-top:11px">
+<div class="field full"><label>PROJECT REQUIREMENTS</label><textarea id="details" placeholder="Reception near entrance, café at upper-left, private offices, central curved stair, clear circulation..."></textarea></div>
+<div class="field full"><label>MUST PRESERVE</label><textarea id="preserve" placeholder="Keep footprint, walls, columns, doors, windows, staircase geometry and circulation."></textarea></div>
+<div class="field full"><label>NEGATIVE / AVOID</label><textarea id="negative" placeholder="No warped geometry, floating furniture, extra doors, incorrect stairs or excessive reflections."></textarea></div>
+</div></div>
+</section>
+
+<aside class="result"><div class="blockhead"><h3>Generated Prompt</h3><span>LIVE OUTPUT</span></div>
+<div class="output" id="promptOutput"></div>
+<div class="out-actions"><button class="btn dark" onclick="copyText(document.getElementById('promptOutput').textContent,this)">Copy Prompt</button><button class="btn" onclick="savePrompt()">Save</button><button class="btn" onclick="generatePrompt()">Regenerate</button></div>
+<div class="metrics"><div class="metric"><b id="wordCount">0</b><span>WORDS</span></div><div class="metric"><b id="engineStat">—</b><span>ENGINE</span></div><div class="metric"><b id="outputStat">—</b><span>OUTPUT</span></div></div>
+</aside>
+</div></main>
+<footer class="footer"><div class="container footer-inner">
+<div>© 2026 Interior Prompt Studio. Professional prompting for interior design.</div>
+<div>Version 1 prototype · Front-end only</div>
+</div></footer><script src="app.js"></script></body></html>
