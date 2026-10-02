@@ -1,4 +1,18 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3E5F7F"><title>Log in — Structevo AI</title><link rel="stylesheet" href="styles.css"></head><body class="auth-body">
-<header class="navbar"><div class="container nav-inner"><a class="brand" href="index.html"><img class="brandmark-img" src="structevo-logo.png" alt="Structevo logo">STRUCTEVO AI</a><div class="nav-actions"><a class="btn" href="signup.html">Create account</a></div></div></header>
-<main class="auth-shell"><section class="auth-card"><div class="auth-logo"><img src="structevo-logo.png" alt="Structevo"></div><span class="badge">WELCOME BACK</span><h1>Log in to Structevo AI.</h1><p>Access your projects, saved design prompts and workspace.</p><form id="loginForm" class="auth-form"><label>Email<input id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label><label>Password<input id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••" required></label><div id="authMessage" class="auth-message" hidden></div><button class="btn dark auth-submit" type="submit">Log in</button></form><div class="auth-separator"><span>or</span></div><a class="btn block" href="signup.html">Create a free account</a><p class="auth-footnote">Prototype account access is stored only in this browser. Secure cloud authentication will be connected before public launch.</p></section></main>
-<script src="auth.js"></script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3E5F7F"><title>Log in — Structevo AI</title><link rel="icon" href="structevo-logo.png"><link rel="stylesheet" href="styles.css"></head><body class="auth-body">
+<header class="navbar"><div class="container nav-inner">
+<a class="brand" href="index.html"><img class="brandmark-img" src="structevo-logo.png" alt="Structevo logo">STRUCTEVO AI</a>
+<div class="nav-actions"><a class="btn" href="index.html">Back Home</a><a class="btn dark" href="signup.html">Create account</a></div>
+</div></header>
+<main class="auth-shell">
+<section class="auth-panel">
+<div class="auth-copy"><span class="badge">WELCOME BACK</span><h1>Continue your design workflow.</h1><p>Access your Structevo workspace, saved projects and AI design tools from one account.</p><div class="auth-benefits"><span>Interior + Architecture workspace</span><span>Saved projects and prompt history</span><span>Free plan available</span></div></div>
+<div class="card auth-card"><span class="badge">LOG IN</span><h2>Access your account</h2><p class="auth-sub">Use the email and password connected to your Structevo account.</p>
+<form id="loginForm" class="auth-form">
+<label>Email<input id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+<label>Password<input id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••" minlength="6" required></label>
+<button class="btn dark block auth-submit" type="submit">Log in</button>
+<div class="auth-message" id="authMessage" role="status"></div>
+</form>
+<div class="auth-switch">New to Structevo? <a href="signup.html">Create a free account</a></div>
+</div></section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="auth-config.js"></script><script src="auth.js"></script></body></html>

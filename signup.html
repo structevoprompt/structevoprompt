@@ -1,4 +1,21 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3E5F7F"><title>Start Free — Structevo AI</title><link rel="stylesheet" href="styles.css"></head><body class="auth-body">
-<header class="navbar"><div class="container nav-inner"><a class="brand" href="index.html"><img class="brandmark-img" src="structevo-logo.png" alt="Structevo logo">STRUCTEVO AI</a><div class="nav-actions"><a class="btn" href="login.html">Log in</a></div></div></header>
-<main class="auth-shell"><section class="auth-card auth-card-wide"><div class="auth-logo"><img src="structevo-logo.png" alt="Structevo"></div><span class="badge">START FREE</span><h1>Create your workspace.</h1><p>Start with the Free plan. No card required.</p><form id="signupForm" class="auth-form"><div class="auth-grid"><label>Full name<input id="signupName" type="text" autocomplete="name" placeholder="Your name" required></label><label>Email<input id="signupEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label></div><div class="auth-grid"><label>Password<input id="signupPassword" type="password" autocomplete="new-password" placeholder="At least 8 characters" required></label><label>Confirm password<input id="signupConfirm" type="password" autocomplete="new-password" placeholder="Repeat password" required></label></div><label class="auth-check"><input type="checkbox" required><span>I agree to the Terms and Privacy Policy.</span></label><div id="authMessage" class="auth-message" hidden></div><button class="btn dark auth-submit" type="submit">Create Free Account</button></form><p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p><p class="auth-footnote">Prototype account access is stored only in this browser. Secure cloud authentication will be connected before public launch.</p></section></main>
-<script src="auth.js"></script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3E5F7F"><title>Create account — Structevo AI</title><link rel="icon" href="structevo-logo.png"><link rel="stylesheet" href="styles.css"></head><body class="auth-body">
+<header class="navbar"><div class="container nav-inner">
+<a class="brand" href="index.html"><img class="brandmark-img" src="structevo-logo.png" alt="Structevo logo">STRUCTEVO AI</a>
+<div class="nav-actions"><a class="btn" href="index.html">Back Home</a><a class="btn secondary" href="login.html">Log in</a></div>
+</div></header>
+<main class="auth-shell">
+<section class="auth-panel">
+<div class="auth-copy"><span class="badge">START FREE</span><h1>Create your Structevo workspace.</h1><p>Start with the free plan and move from concept to presentation with a workflow built for interior design and architecture.</p><div class="auth-benefits"><span>No card required for Free</span><span>Interior + Architecture modes</span><span>Upgrade later when you need Pro</span></div></div>
+<div class="card auth-card"><span class="badge">CREATE ACCOUNT</span><h2>Start your workspace</h2><p class="auth-sub">Your selected plan: <b id="selectedPlan">FREE</b></p>
+<form id="signupForm" class="auth-form">
+<label>Full name<input id="signupName" type="text" autocomplete="name" placeholder="Your name" required></label>
+<label>Role<select id="signupRole" required><option value="Interior Designer">Interior Designer</option><option value="Architect">Architect</option><option value="Student">Student</option><option value="Studio / Agency">Studio / Agency</option><option value="Other">Other</option></select></label>
+<label>Email<input id="signupEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+<label>Password<input id="signupPassword" type="password" autocomplete="new-password" placeholder="At least 6 characters" minlength="6" required></label>
+<label class="terms-row"><input id="termsCheck" type="checkbox" required><span>I agree to the <a href="terms.html" target="_blank">Terms</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.</span></label>
+<button class="btn dark block auth-submit" type="submit">Create free account</button>
+<div class="auth-message" id="authMessage" role="status"></div>
+</form>
+<div class="auth-switch">Already have an account? <a href="login.html">Log in</a></div>
+</div></section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="auth-config.js"></script><script src="auth.js"></script></body></html>

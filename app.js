@@ -156,11 +156,22 @@ function applyArchPreset(t){
   maybeRegenerate();
 }
 
+function applyUrlPreset(){
+  const params=new URLSearchParams(location.search);
+  const preset=params.get("preset");
+  if(!preset) return;
+  const interior=["luxury","plan","mood","commercial","uni","cad"];
+  const architecture=["villa","facade","massing","masterplan","tower","site"];
+  if(interior.includes(preset)) applyPreset(preset);
+  if(architecture.includes(preset)) applyArchPreset(preset);
+}
+
 document.addEventListener("DOMContentLoaded",()=>{
   ids.forEach(id=>$(id)?.addEventListener("input",maybeRegenerate));
   document.querySelectorAll(".tag").forEach(t=>t.addEventListener("click",()=>{t.classList.toggle("active");maybeRegenerate()}));
   setupReferenceUpload();
   setupEnginePills();
   setDiscipline("interior");
+  applyUrlPreset();
   if($("promptOutput")) $("promptOutput").innerHTML='<span class="output-placeholder">Your generated prompt will appear here after you click Generate Prompt.</span>';
 });

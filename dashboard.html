@@ -1,30 +1,48 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3E5F7F"><title>Dashboard — Structevo AI</title><link rel="stylesheet" href="styles.css"></head><body>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3E5F7F"><title>Dashboard — Structevo AI</title><link rel="stylesheet" href="styles.css"></head><body data-auth-page="dashboard">
 <header class="navbar"><div class="container nav-inner">
 <a class="brand" href="index.html"><img class="brandmark-img" src="structevo-logo.png" alt="Structevo logo">STRUCTEVO AI</a>
 <nav class="navlinks">
 <a class="" href="index.html">Home</a>
 <a class="" href="studio.html">Studio</a>
+<a class="" href="generate.html">Generate</a>
 <a class="" href="explore.html">Library</a>
 <a class="" href="pricing.html">Pricing</a>
 <a class="active" href="dashboard.html">Dashboard</a>
 <a class="social-nav" href="https://instagram.com/structevo" target="_blank" rel="noopener">Instagram ↗</a>
 </nav>
-<div class="nav-actions"><a class="btn ig-btn" href="https://instagram.com/structevo" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg></a><a class="btn secondary auth-login" href="login.html">Log in</a><a class="btn dark auth-cta" href="signup.html">Start Free</a></div>
+<div class="nav-actions">
+<a class="btn ig-btn" href="https://instagram.com/structevo" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg></a>
+<a class="btn secondary auth-guest" href="login.html">Log in</a>
+<a class="btn secondary auth-user" href="dashboard.html" hidden>Account</a>
+<a class="btn dark auth-guest" href="signup.html">Start Free</a>
+<button class="btn auth-user" type="button" data-logout hidden>Log out</button>
+</div>
 </div></header>
-<main class="container"><section class="pagehead dashboard-head"><div><span class="badge">MY WORKSPACE</span><h1>Welcome back, <span id="userFirstName">Designer</span>.</h1><p>Keep your interior and architecture work organized in one place.</p></div><a class="btn" href="account.html">Account settings</a></section>
-<div class="stats"><div class="card stat"><b id="projectCount">0</b><span>PROJECTS</span></div><div class="card stat"><b id="interiorCount">0</b><span>INTERIOR</span></div><div class="card stat"><b id="archCount">0</b><span>ARCHITECTURE</span></div><div class="card stat"><b id="promptCount">0</b><span>PROMPTS</span></div></div>
-<section class="dashboard-grid dashboard-grid-v2" style="padding-bottom:54px"><div class="card dash"><span class="badge">RECENT</span><h3 style="font-size:25px">Saved Projects</h3><div id="projects"></div></div><div class="dashboard-side"><div class="card dash account-summary"><div class="account-summary-top"><div><span class="badge">CURRENT PLAN</span><h3 id="currentPlan">Free</h3></div><a class="btn" href="pricing.html">View plans</a></div><div class="usage-line"><div><span>Monthly usage</span><b id="usageText">0 / 10</b></div><div class="usage-bar"><span id="usageBar"></span></div></div></div><div class="card dash"><span class="badge">QUICK START</span><h3 style="font-size:25px">Continue designing</h3><p style="font-size:10px;color:var(--muted);line-height:1.55">Open the AI Studio and switch between Interior Design and Architecture at any time.</p><div style="display:grid;gap:8px;margin-top:18px"><a class="btn dark block" href="studio.html">Open AI Studio</a><a class="btn block" href="explore.html">Design Library</a></div></div></div></section>
-</main><footer class="footer"><div class="container footer-inner"><div>© 2026 STRUCTEVO AI</div><div class="footer-links"><span>AI prompting for Interior Design + Architecture</span><a href="https://instagram.com/structevo" target="_blank" rel="noopener">Instagram @structevo ↗</a></div></div></footer>
+<main class="container">
+<section class="account-strip card">
+  <div>
+    <span class="badge">ACCOUNT</span>
+    <b id="accountName">Your workspace</b>
+    <small id="accountEmail">Sign in to sync your account.</small>
+  </div>
+  <div class="account-actions">
+    <span class="plan-pill" id="accountPlan">FREE</span>
+    <button class="btn auth-user" type="button" data-logout hidden>Log out</button>
+  </div>
+</section>
+<section class="pagehead dashboard-head"><span class="badge">MY WORKSPACE</span><h1>Welcome back, <span data-user-name>Designer</span>.</h1><p>Keep projects, saved prompts and design directions organized in one place.</p><div class="hero-actions"><a class="btn dark large" href="studio.html?new=1">＋ New Project</a><a class="btn large" href="generate.html">Generate AI Design</a><a class="btn large" href="explore.html">Browse Library</a><a class="btn large" href="account.html">Account Settings</a></div></section>
+<div class="stats"><div class="card stat"><b id="projectCount">0</b><span>PROJECTS</span></div><div class="card stat"><b id="interiorCount">0</b><span>INTERIOR</span></div><div class="card stat"><b id="archCount">0</b><span>ARCHITECTURE</span></div><div class="card stat"><b id="promptCount">0</b><span>PROMPTS</span></div><div class="card stat"><b id="imageCount">0</b><span>AI IMAGES</span></div></div>
+<section class="dashboard-grid" style="padding-bottom:54px"><div class="card dash"><span class="badge">RECENT</span><h3 style="font-size:25px">Saved Projects</h3><div id="projects"></div></div><div class="card dash"><span class="badge">QUICK START</span><h3 style="font-size:25px">Continue designing</h3><p style="font-size:10px;color:var(--muted);line-height:1.55">Open the studio and switch between Interior Design and Architecture at any time.</p><div style="display:grid;gap:8px;margin-top:18px"><a class="btn dark block" href="generate.html">Generate AI Design</a><a class="btn block" href="studio.html">Open Studio</a><a class="btn block" href="explore.html">Design Library</a></div></div></section>
+</main><footer class="footer"><div class="container footer-inner"><div>© 2026 STRUCTEVO AI</div><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a><a href="https://instagram.com/structevo" target="_blank" rel="noopener">Instagram @structevo ↗</a></div></div></footer>
 <script>
-let x=[];try{x=JSON.parse(localStorage.getItem("structevo_projects")||"[]")}catch(e){}
-const currentUser=window.StructevoAuth?.getUser?.();
-if(currentUser){document.getElementById("userFirstName").textContent=(currentUser.name||"Designer").split(" ")[0];document.getElementById("currentPlan").textContent=currentUser.plan||"Free";}
-const used=Math.min(x.length,10);document.getElementById("usageText").textContent=`${used} / 10`;document.getElementById("usageBar").style.width=`${used*10}%`;
+let x=[];let gx=[];try{x=JSON.parse(localStorage.getItem("structevo_projects")||"[]")}catch(e){} try{gx=JSON.parse(localStorage.getItem("structevo_generated_projects")||"[]")}catch(e){}
 document.getElementById("projectCount").textContent=new Set(x.map(p=>p.name)).size;
 document.getElementById("promptCount").textContent=x.length;
 document.getElementById("interiorCount").textContent=x.filter(p=>p.discipline==="interior").length;
 document.getElementById("archCount").textContent=x.filter(p=>p.discipline==="architecture").length;
+document.getElementById("imageCount").textContent=Number(localStorage.getItem("structevo_image_count")||0);
 let box=document.getElementById("projects");
-if(!x.length)box.innerHTML='<div style="padding:30px;border:1px dashed #c8bfb2;border-radius:14px;color:#746e65;font-size:10px;text-align:center">No saved projects yet.</div>';
-else box.innerHTML=x.slice(0,10).map(p=>`<div class="project-row"><div><b>${p.name}</b><small>${p.discipline} · ${p.date}</small></div><span class="badge">${p.discipline}</span></div>`).join("");
-</script><script src="auth.js"></script></body></html>
+const combined=[...gx.map(p=>({...p,discipline:p.mode||"image",isImage:true})),...x].slice(0,10);
+if(!combined.length)box.innerHTML='<div style="padding:30px;border:1px dashed #c8bfb2;border-radius:14px;color:#746e65;font-size:10px;text-align:center">No saved projects yet.</div>';
+else box.innerHTML=combined.map(p=>`<div class="project-row"><div><b>${p.name}</b><small>${p.isImage?"AI image":"Prompt"} · ${p.discipline} · ${p.date}</small></div><span class="badge">${p.isImage?"image":p.discipline}</span></div>`).join("");
+</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="auth-config.js"></script><script src="auth.js"></script></body></html>
