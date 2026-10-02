@@ -1,25 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Account & Billing — Structevo AI</title><link rel="stylesheet" href="styles.css?v=3"></head><body>
-
-<header class="navbar"><div class="container nav-inner">
-<a class="brand" href="index.html"><span class="brandmark">SA</span><span class="brand-copy"><b>STRUCTEVO AI</b><span>DESIGN INTELLIGENCE</span></span></a>
-<nav class="navlinks">
-<a class="" href="index.html">Home</a>
-<a class="" href="studio.html">Prompt Studio</a>
-<a class="" href="explore.html">Library</a>
-<a class="" href="pricing.html">Pricing</a>
-<a class="" href="dashboard.html">Dashboard</a>
-</nav>
-<div class="nav-actions" id="navAuth">
-<a class="btn soft" href="login.html">Log in</a><a class="btn dark" href="signup.html">Start Free</a>
-</div>
-</div></header>
-<main class="container"><section class="pagehead"><span class="badge">ACCOUNT</span><h1>Account & billing.</h1><p>Manage your profile, subscription and billing preferences.</p></section>
-<div class="account-grid">
-<aside class="card account-nav"><a class="account-link active" href="#profile">Profile</a><a class="account-link" href="#subscription">Subscription</a><a class="account-link" href="#billing">Billing</a><a class="account-link" href="#security">Security</a></aside>
-<section class="card account-panel">
-<div id="profile"><span class="badge">PROFILE</span><div class="setting-row"><div><b>Name</b><p id="accountName">—</p></div><button class="btn">Edit</button></div><div class="setting-row"><div><b>Email</b><p id="accountEmail">—</p></div><button class="btn">Edit</button></div><div class="setting-row"><div><b>Discipline</b><p id="accountRole">Interior + Architecture</p></div><button class="btn">Change</button></div></div>
-<div id="subscription" style="margin-top:28px"><span class="badge">SUBSCRIPTION</span><div class="billing-card"><div><h4 id="accountPlan">Free Plan</h4><p id="accountPlanText">Basic access with up to 5 saved projects.</p></div><a class="btn dark" href="pricing.html">Change Plan</a></div></div>
-<div id="billing" style="margin-top:28px"><span class="badge">BILLING</span><div class="setting-row"><div><b>Payment method</b><p>No payment method on file.</p></div><button class="btn">Add Card</button></div><div style="margin-top:16px"><b style="font-size:10px">Invoices</b><div class="invoice"><span>No invoices yet</span><span>—</span><span>—</span></div></div></div>
-<div id="security" style="margin-top:28px"><span class="badge">SECURITY</span><div class="setting-row"><div><b>Password</b><p>Change your account password.</p></div><button class="btn">Change</button></div><div class="setting-row"><div><b>Sign out</b><p>Sign out of this device.</p></div><button class="btn" onclick="logoutUser()">Sign out</button></div></div>
-</section></div></main>
-<footer class="footer"><div class="container footer-inner"><div>© 2026 STRUCTEVO AI</div><div>Interior + Architecture AI Prompt Studio</div></div></footer><script src="app.js?v=3"></script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3E5F7F"><title>Account — Structevo AI</title><link rel="stylesheet" href="styles.css"></head><body id="accountPage">
+<header class="navbar"><div class="container nav-inner"><a class="brand" href="index.html"><img class="brandmark-img" src="structevo-logo.png" alt="Structevo logo">STRUCTEVO AI</a><nav class="navlinks"><a href="index.html">Home</a><a href="studio.html">Studio</a><a href="explore.html">Library</a><a href="pricing.html">Pricing</a><a href="dashboard.html">Dashboard</a></nav><div class="nav-actions"><a class="btn secondary" href="dashboard.html">Dashboard</a><button id="logoutBtn" class="btn">Log out</button></div></div></header>
+<main class="container account-page"><section class="pagehead"><span class="badge">ACCOUNT</span><h1>Your Structevo profile.</h1><p>Manage your workspace identity and current plan.</p></section><section class="account-grid"><div class="card account-profile"><div class="account-avatar" data-user-name>Designer</div><div><span class="badge">PROFILE</span><h2 data-user-name>Designer</h2><p data-user-email></p></div></div><div class="card account-plan"><span class="badge">CURRENT PLAN</span><h2 data-user-plan>Free</h2><p>Basic Interior + Architecture studio access and core prompt workflows.</p><a class="btn dark" href="pricing.html">View Pricing</a></div><div class="card account-security"><span class="badge">SECURITY</span><h2>Cloud authentication next</h2><p>This prototype currently keeps the account on this browser. Production authentication, password reset and secure sessions are the next backend step.</p></div></section></main>
+<script src="auth.js"></script></body></html>

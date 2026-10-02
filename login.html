@@ -1,29 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Log in — Structevo AI</title><link rel="stylesheet" href="styles.css?v=3"></head><body>
-
-<header class="navbar"><div class="container nav-inner">
-<a class="brand" href="index.html"><span class="brandmark">SA</span><span class="brand-copy"><b>STRUCTEVO AI</b><span>DESIGN INTELLIGENCE</span></span></a>
-<nav class="navlinks">
-<a class="" href="index.html">Home</a>
-<a class="" href="studio.html">Prompt Studio</a>
-<a class="" href="explore.html">Library</a>
-<a class="" href="pricing.html">Pricing</a>
-<a class="" href="dashboard.html">Dashboard</a>
-</nav>
-<div class="nav-actions" id="navAuth">
-<a class="btn soft" href="login.html">Log in</a><a class="btn dark" href="signup.html">Start Free</a>
-</div>
-</div></header>
-<main class="auth-shell"><div class="auth-grid">
-<section class="auth-side"><div><span class="badge dark">WELCOME BACK</span><h1>Your design workspace, ready when you are.</h1><p>Access saved projects, subscription features and your Interior + Architecture Prompt Studio.</p></div><div class="auth-points"><div class="auth-point">✓ Saved projects and prompt history</div><div class="auth-point">✓ Account and billing in one place</div><div class="auth-point">✓ Upgrade to Pro anytime</div></div></section>
-<section class="auth-card"><h2>Log in</h2><p>Continue to your Structevo AI workspace.</p>
-<form class="form" onsubmit="loginUser(event)">
-<div class="field"><label>EMAIL</label><input id="loginEmail" type="email" placeholder="you@example.com" required></div>
-<div class="field"><label>PASSWORD</label><input id="loginPassword" type="password" placeholder="••••••••" required></div>
-<div class="auth-row"><label><input type="checkbox"> Remember me</label><a href="#">Forgot password?</a></div>
-<button class="btn dark block" type="submit">Log in</button>
-</form>
-<div class="divider">or</div><button class="social-btn" onclick="demoGoogleLogin()">Continue with Google</button>
-<p class="fine">Prototype note: authentication is simulated locally in this version. Production will use secure hosted authentication.</p>
-<div class="auth-row" style="margin-top:18px"><span>New to Structevo AI?</span><a href="signup.html"><b>Create account</b></a></div>
-</section></div></main>
-<footer class="footer"><div class="container footer-inner"><div>© 2026 STRUCTEVO AI</div><div>Interior + Architecture AI Prompt Studio</div></div></footer><script src="app.js?v=3"></script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3E5F7F"><title>Log in — Structevo AI</title><link rel="stylesheet" href="styles.css"></head><body class="auth-body">
+<header class="navbar"><div class="container nav-inner"><a class="brand" href="index.html"><img class="brandmark-img" src="structevo-logo.png" alt="Structevo logo">STRUCTEVO AI</a><div class="nav-actions"><a class="btn" href="signup.html">Create account</a></div></div></header>
+<main class="auth-shell"><section class="auth-card"><div class="auth-logo"><img src="structevo-logo.png" alt="Structevo"></div><span class="badge">WELCOME BACK</span><h1>Log in to Structevo AI.</h1><p>Access your projects, saved design prompts and workspace.</p><form id="loginForm" class="auth-form"><label>Email<input id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label><label>Password<input id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••" required></label><div id="authMessage" class="auth-message" hidden></div><button class="btn dark auth-submit" type="submit">Log in</button></form><div class="auth-separator"><span>or</span></div><a class="btn block" href="signup.html">Create a free account</a><p class="auth-footnote">Prototype account access is stored only in this browser. Secure cloud authentication will be connected before public launch.</p></section></main>
+<script src="auth.js"></script></body></html>
