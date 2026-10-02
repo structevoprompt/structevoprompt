@@ -1,19 +1,22 @@
-# Structevo Prompt V2 Pro
+# Structevo AI V3 SaaS Pro
 
-Professional prompt platform prototype for:
-- Interior Design
-- Architecture
-- Architectural visualization
-- Façade studies
-- Massing
-- Site planning
-- Masterplans
-- University presentation workflows
+Front-end SaaS prototype with:
+- Home
+- Interior + Architecture Prompt Studio
+- Prompt Library
+- Pricing with Monthly / Yearly toggle
+- Free / Pro / Studio plans
+- Sign Up / Login
+- Dashboard
+- Account & Billing
+- Local prototype authentication
+- Local plan selection / feature gating
 
-This version is still front-end only. Production roadmap:
-1. Authentication
-2. Cloud database
-3. AI prompt enhancement
-4. Image / plan upload analysis
-5. Subscription billing
-6. Team workspaces
+## Production integrations still needed
+1. Supabase/Auth or equivalent for secure accounts
+2. Postgres database for projects
+3. Stripe for subscriptions and billing
+4. OpenAI API for prompt enhancement / image analysis
+5. File storage for uploaded plans and references
+
+This build is intentionally front-end only so the UX can be approved before connecting live services.
